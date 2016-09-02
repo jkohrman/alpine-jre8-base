@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.4
 MAINTAINER Jeff Kohrman <jeffrey.kohrman@ldschurch.org>
 
 RUN apk update && \
