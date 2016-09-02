@@ -10,7 +10,7 @@ Currently using `musl` instead of `glibc`.
 This application exposes the Java binary by default.  To use this, simply run the container:  
 
 ```
-docker run -it --rm jkohrman/alpine-jre8-base:latest --version  
+docker run jkohrman/alpine-jre8-base:latest -version  
 ```  
 
 ## License  
