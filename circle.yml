@@ -1,0 +1,22 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  cache_directories:
+    - "~/.docker"
+  override:
+    - docker info
+    - docker build --rm=false -t jkohrman/alpine-jre8-base .
+
+test:
+  override:
+    - docker run -i --rm lukasmartinelli/hadolint:latest < Dockerfile
+    - docker run -it --rm jkohrman/alpine-jre8-base:latest -version
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push jkohrman/alpine-jre8-base
