@@ -1,5 +1,5 @@
 FROM alpine:3.4
-MAINTAINER Jeff Kohrman <jeffrey.kohrman@ldschurch.org>
+MAINTAINER Jeff Kohrman <jeff.kohrman@gmail.com>
 
 RUN apk update && \
     apk add openjdk8-jre-base && \
