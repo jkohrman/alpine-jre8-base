@@ -3,11 +3,9 @@ machine:
     - docker
 
 dependencies:
-  cache_directories:
-    - "~/.docker"
   override:
     - docker info
-    - docker build --rm=false -t jkohrman/alpine-jre8-base .
+    - docker build --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` --build-arg VCS_REF=`git rev-parse --short HEAD` --rm=false -t jkohrman/alpine-jre8-base .
 
 test:
   override:
